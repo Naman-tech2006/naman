@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Success</title>
+    <style>
+        body {
+            background-color: #e0f7e9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            background-color: #4caf50;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            /* Removed bottom margin */
+        }
+
+        button {
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(33, 150, 243, 0.4);
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            /* Added top margin */
+        }
+
+        button:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Form submitted successfully!</h2>
+    <button onclick="window.location.href='/contact-entries/'">View All Users</button>
+
+</body>
+
+</html>
