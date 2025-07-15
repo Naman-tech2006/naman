@@ -1,102 +1,111 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Contact Form</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            padding: 40px;
-        }
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h2 {
-            text-align: center;
-            color: #444;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 500px;
+      animation: slideFade 1s ease forwards;
+    }
 
-        form p {
-            margin-bottom: 15px;
-        }
+    @keyframes slideFade {
+      0% {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 15px;
-            transition: border-color 0.3s;
-        }
+    form p {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 12px 12px 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: 0.3s;
+    }
 
-        button[type="submit"] {
-            background-color: #007BFF;
-            color: white;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
 
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+    button[type="submit"],
+    .navigate-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
 
+    button:hover,
+    .navigate-btn:hover {
+      background-color: #0056b3;
+    }
 
-        .navigate-btn {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .navigate-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .navigate-form {
+      margin-top: 10px;
+    }
+  </style>
 </head>
-
 <body>
-    <h2>User Registeration Form</h2>
+  <div class="form-container">
+    <h2>User Registration</h2>
+
+    <!-- Django Form -->
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
     </form>
-    <!-- Button to go to contact entries page -->
-    <form action="{% url 'contact_entries' %}" method="get" style="margin-top: 20px;">
-        <button type="submit" class="navigate-btn">View Contact Entries</button>
+
+    <!-- Navigation Button -->
+    <form action="{% url 'contact_entries' %}" method="get" class="navigate-form">
+      <button type="submit" class="navigate-btn">View Contact Entries</button>
     </form>
-</body> 
+  </div>
+</body>
 </html>

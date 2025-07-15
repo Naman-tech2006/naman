@@ -20,9 +20,9 @@ def contact_entries_view(request):
     return render(request, 'contact_entries.html', {'entries': entries})
 
 
-
 from django.shortcuts import get_object_or_404, redirect
 from .forms import ContactEntryForm
+
 
 def update_contact(request, pk):
     contact = get_object_or_404(ContactEntry, pk=pk)
@@ -35,6 +35,7 @@ def update_contact(request, pk):
         form = ContactEntryForm(instance=contact)
     
     return render(request, 'update_contact.html', {'form': form})
+
 
 def delete_contact(request, pk):
     contact = get_object_or_404(ContactEntry, pk=pk)

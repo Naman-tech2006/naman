@@ -1,55 +1,127 @@
-<h2>Update Contact Entry</h2>
-<form method="post" class="update-form">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="save-btn">Save Changes</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Contact Entry</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffe0f0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px 20px;
+      color: #333;
+      animation: fadeInBody 0.7s ease;
+    }
 
-<style>
-  .update-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    font-family: Arial, sans-serif;
-  }
+    @keyframes fadeInBody {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .update-form p {
-    margin-bottom: 15px;
-  }
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 25px;
+      animation: slideDown 0.6s ease;
+    }
 
-  .update-form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #333;
-  }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .update-form input,
-  .update-form textarea,
-  .update-form select {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
+    .update-form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: popUp 0.7s ease;
+    }
 
-  .save-btn {
-    background-color: #28a745; /* Bootstrap green */
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-  .save-btn:hover {
-    background-color: #218838;
-  }
-</style>
+    .update-form p {
+      margin-bottom: 20px;
+    }
+
+    .update-form label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      display: block;
+      color: #444;
+    }
+
+    .update-form input,
+    .update-form textarea,
+    .update-form select {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .update-form input:focus,
+    .update-form textarea:focus,
+    .update-form select:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+    }
+
+    .save-btn {
+      display: block;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+      margin-top: 10px;
+    }
+
+    .save-btn:hover {
+      background-color: #218838;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Update Contact Entry ✏️</h2>
+
+  <form method="post" class="update-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save-btn">💾 Save Changes</button>
+  </form>
+
+</body>
+</html>
